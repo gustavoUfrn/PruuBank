@@ -2,7 +2,7 @@ package pruuBank;
 
 public abstract class Conta {
 	private String numeroConta;
-	private double saldo;
+	protected double saldo;
 	private Cliente cliente;
 	
 	public Conta(String numeroConta, double saldo, Cliente cliente) {
@@ -36,7 +36,7 @@ public abstract class Conta {
 	}
 	
 	public abstract boolean sacar(double valor);
-	public abstract boolean transferir();
+	public abstract boolean transferir(Conta contaDestino, double valor);
 	
 	public void depositar(double valor) {
 		this.saldo += valor;
