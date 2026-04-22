@@ -36,8 +36,8 @@ public abstract class Conta {
 		this.cliente = cliente;
 	}
 	
-	public abstract double sacar();
-	public abstract double transferir();
+	public abstract boolean sacar(double valor);
+	public abstract boolean transferir();
 	
 	public void depositar(double valor) {
 		this.saldo += valor;

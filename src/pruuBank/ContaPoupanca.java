@@ -7,13 +7,19 @@ public class ContaPoupanca extends Conta {
 	}
 	
 	@Override
-	public double sacar() {
-		
-		return 0;
+	public boolean sacar(double valor) {
+		if(this.getSaldo() < valor) {
+			System.out.println("Você não tem saldo suficiente para está operação!");
+			return false;
+		} else {
+			double total = this.getSaldo() - valor;
+			this.setSaldo(total);
+			return true;
+		}
 	}
 	
 	@Override
-	public double transferir() {
-		return 0;
+	public boolean transferir() {
+		return true;
 	}
 }
