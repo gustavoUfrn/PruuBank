@@ -1,17 +1,17 @@
 package pruuBank;
 
 public abstract class Conta {
-	private String numeroConta;
+	private int numeroConta;
 	protected double saldo;
 	private Cliente cliente;
 	
-	public Conta(String numeroConta, double saldo, Cliente cliente) {
+	public Conta(int numeroConta, double saldo, Cliente cliente) {
 		this.numeroConta = numeroConta;
 		this.saldo = saldo;
 		this.cliente = cliente;
 	}
 	
-	public String getNumeroConta() {
+	public int getNumeroConta() {
 		return numeroConta;
 	}
 	
@@ -23,7 +23,7 @@ public abstract class Conta {
 		return cliente;
 	}
 	
-	public void setNumeroConta(String numeroConta) {
+	public void setNumeroConta(int numeroConta) {
 		this.numeroConta = numeroConta;
 	}
 	

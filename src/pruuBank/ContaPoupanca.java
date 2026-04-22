@@ -2,7 +2,7 @@ package pruuBank;
 
 public class ContaPoupanca extends Conta {
 	
-	public ContaPoupanca(String numeroConta, double saldo, Cliente cliente) {
+	public ContaPoupanca(int numeroConta, double saldo, Cliente cliente) {
 		super(numeroConta, saldo, cliente);
 	}
 	

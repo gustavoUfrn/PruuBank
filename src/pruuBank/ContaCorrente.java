@@ -2,7 +2,7 @@ package pruuBank;
 
 public class ContaCorrente extends Conta implements ITributavel {
 	
-	public ContaCorrente(String numeroConta, double saldo, Cliente cliente) {
+	public ContaCorrente(int numeroConta, double saldo, Cliente cliente) {
 		super(numeroConta, saldo, cliente);
 	}
 	
