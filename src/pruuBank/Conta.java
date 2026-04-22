@@ -1,7 +1,6 @@
 package pruuBank;
 
 public abstract class Conta {
-	
 	private String numeroConta;
 	private double saldo;
 	private Cliente cliente;
