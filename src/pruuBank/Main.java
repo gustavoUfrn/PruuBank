@@ -9,19 +9,19 @@ public class Main {
 		ArrayList<Conta> listaDeContas = new ArrayList<>();
 		
 		Scanner scanner = new Scanner(System.in);
+		Conta conta;
 		
 		int idConta = 101, sair = 999;
-		boolean achou;
 		double dnum;
 		
 		while(sair != 7) {
 			//Menu default
-			achou = false;
 			System.out.println("------------------------------------------------------------");
 			System.out.println("Escolha uma de nossas operaçõesPruu!!");
 			System.out.println("1 - Criar sua contaPruu!");
 			System.out.println("2 - Fazer um depositoPruu!");
 			System.out.println("3 - Fazer um saquePruu!");
+			System.out.println("4 - Fazer uma transferenciaPruu!");
 			System.out.println("7 - Sair");
 			System.out.println("------------------------------------------------------------");
 			
@@ -30,12 +30,10 @@ public class Main {
 			
 			switch(sair) {
 			  case 1:
-				  //Nome do cliente
 				  System.out.println("Digite seu nomePruu!!");
 				  String nome = scanner.nextLine();
 				  Cliente cliente = new Cliente(nome);
 				  
-				  //Tipo da conta
 				  System.out.println("Escolha o tipo da sua contaPruu!!");
 				  System.out.println("1 - Conta poupançaPruu!!");
 				  System.out.println("2 - Conta correntePruu!!");
@@ -44,7 +42,6 @@ public class Main {
 				  int num = scanner.nextInt();
 				  scanner.nextLine();
 				  
-				  //Criando a conta
 				  if(num==1){
 					  
 					  ContaPoupanca contaPoupanca = new ContaPoupanca(idConta, 0.0, cliente);
@@ -62,11 +59,13 @@ public class Main {
 					  System.out.println("Obrigado por escolher PruuBank! Sua conta corretePruu foi criada!!");
 					  System.out.println("------------------------------------------------------------");
 				  } else {
+					  
 					  System.out.println("------------------------------------------------------------");
 					  System.out.println("Número inválido redirecionando para tela de operaçõesPruu!!");
 					  System.out.println("------------------------------------------------------------");
 					  break;
 				  }
+				  
 				  idConta++;
 				  break;
 				  
@@ -76,60 +75,70 @@ public class Main {
 				  num = scanner.nextInt();
 				  scanner.nextLine();
 				  
-				  for(Conta c : listaDeContas) {
-					  if(c.getNumeroConta() == num) {
-				
-						 System.out.println("Digite o número do valor do depositoPruu!!");
-						 dnum = scanner.nextDouble();
-						 scanner.nextLine();
-						 
-						 c.depositar(dnum);
-						 System.out.println("O deposito foi um sucesso!!");
-						 achou = true;
-					  }
-				  }
+				  conta = buscarIdConta(listaDeContas, num);
 				  
-				  if(achou) {
-					  break;
-				  } else {
-					  System.out.println("------------------------------------------------------------");
-					  System.out.println("Não encontramos uma conta conrrespondente!!");
-					  System.out.println("------------------------------------------------------------");
+				  if(conta != null) {
+					  System.out.println("Digite o valor de um depositoPruu!!");
+					  
+					  dnum = scanner.nextDouble();
+					  scanner.nextLine();
+					  
+					  conta.depositar(dnum);
 				  }
 				  break;
 				  
 			  case 3:
+				  
 				  System.out.println("Digite o número da conta para saquePruu!!");
 				  num = scanner.nextInt();
 				  scanner.nextLine();
 				  
-				  for(Conta c : listaDeContas) {
-					  if(c.getNumeroConta() == num) {
-						  System.out.println("Digite o número do valor do saquePruu!!");
-						  dnum = scanner.nextDouble();
-						  scanner.nextLine();
-						  
-						  c.sacar(dnum);
-						  achou = true;
-					  }
-				  }
+				  conta = buscarIdConta(listaDeContas, num);
 				  
-				  if(achou) {
-					  break;
-				  } else {
-					  System.out.println("------------------------------------------------------------");
-					  System.out.println("Não encontramos uma conta conrrespondente!!");
-					  System.out.println("------------------------------------------------------------");
+				  if(conta != null) {
+					  System.out.println("Digite o número do valor do saquePruu!!");
+					  dnum = scanner.nextDouble();
+					  scanner.nextLine();
+						    
+					  conta.sacar(dnum);
 				  }
 				  break;
+				  
+			  case 4: 
 				  
 			  case 7:
 			    scanner.close();
 			    break;
-			  default:
-			    
 			}
 		}
 	}
-
+	
+	public static Conta buscarIdConta(ArrayList<Conta> lista, int numeroConta) {
+		for (Conta c : lista) {
+			if(c.getNumeroConta() == numeroConta) {
+				return c;
+			}
+		}
+		
+		System.out.println("------------------------------------------------------------");
+		System.out.println("Não encontramos uma conta conrrespondente!!");
+		System.out.println("------------------------------------------------------------");
+		
+		return null;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
