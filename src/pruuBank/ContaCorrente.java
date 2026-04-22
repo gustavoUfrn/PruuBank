@@ -19,9 +19,10 @@ public class ContaCorrente extends Conta implements ITributavel {
 			System.out.println("Você não tem saldo suficiente para está operação!");
 			return false;
 		} else {
-			double total = this.saldo  - valorComtaxa;
+			double total = this.saldo - valorComtaxa;
 			this.saldo = total;
 			
+			System.out.println("O saquePruu foi um sucesso!!");
 			return true;
 		}
 	}
