@@ -23,6 +23,7 @@ public class Main {
 			System.out.println("3 - Fazer um saquePruu!");
 			System.out.println("4 - Fazer uma transferenciaPruu!");
 			System.out.println("5 - Fazer uma lista dos cadastradosPruu e suas infosPruu!!");
+			System.out.println("6 - Calcular todos os tributosPruu!!");
 			System.out.println("7 - Sair");
 			System.out.println("------------------------------------------------------------");
 			
@@ -137,7 +138,19 @@ public class Main {
 					  System.out.println("------------------------------------------------------------");
 				  }
 				  break;
+			  case 6:
+				  int totalTributos = 0;
 				  
+				  for(Conta c: listaDeContas) {
+					 if(c instanceof ITributavel) {
+						 
+						 ITributavel iTrubutavel = (ITributavel) c;
+						 totalTributos += iTrubutavel.calcularTributos();
+					 }
+				  }
+				  System.out.println("O total de tributosPruu!!: " + totalTributos + " Pruu$");
+				  
+				  break;
 			  case 7:
 			    scanner.close();
 			    break;
