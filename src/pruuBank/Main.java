@@ -105,6 +105,26 @@ public class Main {
 				  break;
 				  
 			  case 4: 
+				  System.out.println("Digite o número da conta que irá fazer a transferenciaPruu!!");
+				  num = scanner.nextInt();
+				  scanner.nextLine();
+				  
+				  conta = buscarIdConta(listaDeContas, num);
+				  
+				  System.out.println("Digite o número da conta que irá receber a transferenciaPruu!!");
+				  int num2 = scanner.nextInt();
+				  scanner.nextLine();
+				  
+				  Conta contaReciever = buscarIdConta(listaDeContas, num2);
+				  
+				  if (conta != null && contaReciever != null) {
+					  System.out.println("Digite o número do valor da transferenciaPruu!!");
+					  dnum = scanner.nextDouble();
+					  scanner.nextLine();
+					  
+					  conta.transferir(contaReciever, dnum);
+				  }
+				  break;
 				  
 			  case 7:
 			    scanner.close();

@@ -16,7 +16,7 @@ public class ContaPoupanca extends Conta {
 			double total = this.saldo - valor;
 			this.saldo = total;
 			
-			System.out.println("O saquePruu foi um sucesso!!");
+			System.out.println("A operação foi um sucesso!!");
 			return true;
 		}
 	}
@@ -27,6 +27,7 @@ public class ContaPoupanca extends Conta {
 	        contaDestino.depositar(valor);
 	        return true;
 	    }
+	    
 	    return false;
 	}
 }
