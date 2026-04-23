@@ -22,6 +22,7 @@ public class Main {
 			System.out.println("2 - Fazer um depositoPruu!");
 			System.out.println("3 - Fazer um saquePruu!");
 			System.out.println("4 - Fazer uma transferenciaPruu!");
+			System.out.println("5 - Fazer uma lista dos cadastradosPruu e suas infosPruu!!");
 			System.out.println("7 - Sair");
 			System.out.println("------------------------------------------------------------");
 			
@@ -123,6 +124,17 @@ public class Main {
 					  scanner.nextLine();
 					  
 					  conta.transferir(contaReciever, dnum);
+				  }
+				  break;
+			  case 5: 
+				  System.out.println("Listando todas as contasPruu e infosPruu!!");
+				  System.out.println("------------------------------------------------------------");
+				  for(Conta c: listaDeContas) {
+					  System.out.println("Id conta: " + c.getNumeroConta());
+					  System.out.println("Nome do user: " +c.getCliente().getNome());
+					  System.out.println("Saldo da conta: " + c.getSaldo());
+					  System.out.println("Classe: " + c.getClass().getSimpleName());
+					  System.out.println("------------------------------------------------------------");
 				  }
 				  break;
 				  
