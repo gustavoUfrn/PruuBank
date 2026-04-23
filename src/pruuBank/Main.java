@@ -139,7 +139,7 @@ public class Main {
 				  }
 				  break;
 			  case 6:
-				  int totalTributos = 0;
+				  double totalTributos = 0;
 				  
 				  for(Conta c: listaDeContas) {
 					 if(c instanceof ITributavel) {
@@ -172,18 +172,4 @@ public class Main {
 		return null;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
